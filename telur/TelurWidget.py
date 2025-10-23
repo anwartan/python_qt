@@ -11,7 +11,7 @@ class TelurWidget(QMainWindow):
     camera=None
     def __init__(self):
         super().__init__()
-        loadUi("contoh1.ui",self)
+        loadUi("telur/contoh1.ui",self)
         self.camera=Camera()
         self.detection=Dectation()
         self.masuk.setChecked(True)
