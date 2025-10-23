@@ -70,3 +70,4 @@ window.show()
 
 app.exec()
 print("Hello")
+print("o")
