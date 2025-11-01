@@ -3,6 +3,8 @@ from PyQt6.uic import loadUi
 import sys
 from telur.TelurWidget import TelurWidget
 from map.map import MapWidget
+from cuaca.Weather import Weather
+from telur.TelurWidget import TelurWidget
 class MainWindow(QMainWindow):
    def __init__(self):
         super().__init__()
@@ -15,6 +17,12 @@ class MainWindow(QMainWindow):
         elif item.text() == "map":
                 self.map_window = MapWidget()
                 self.map_window.show()
+        elif item.text() == "cuaca":
+                self.cuaca_window = Weather()
+                self.cuaca_window.show()
+        
+        
+
 app = QApplication(sys.argv)
 
 window = MainWindow()
