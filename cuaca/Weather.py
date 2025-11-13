@@ -3,7 +3,6 @@ from PyQt6.uic import loadUi
 from api_client import Apiclient
 import json
 
-
 class Weather(QWidget):
     def __init__(self):
         super().__init__()

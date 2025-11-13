@@ -5,6 +5,8 @@ from telur.TelurWidget import TelurWidget
 from map.map import MapWidget
 from cuaca.Weather import Weather
 from telur.TelurWidget import TelurWidget
+from currency.currency import Money
+from passwordmanager.manager import PasswordWidget
 class MainWindow(QMainWindow):
    def __init__(self):
         super().__init__()
@@ -20,8 +22,12 @@ class MainWindow(QMainWindow):
         elif item.text() == "cuaca":
                 self.cuaca_window = Weather()
                 self.cuaca_window.show()
-        
-        
+        elif item.text() == "password manager":
+                self.password_window = PasswordWidget()
+                self.password_window.show()
+        elif item.text() == "currrency converter":
+                self.currency_window = Money()
+                self.currency_window.show()
 
 app = QApplication(sys.argv)
 

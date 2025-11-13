@@ -29,12 +29,22 @@
    </item>
    <item>
     <property name="text">
+     <string>password manager</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>map</string>
     </property>
    </item>
    <item>
     <property name="text">
      <string>cuaca</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>currrency converter</string>
     </property>
    </item>
   </widget>
