@@ -1,4 +1,4 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-engine = create_engine('sqlite:///passwords.db',echo=False)
+engine = create_engine('sqlite:///password.db', echo=True)
 sessionlocal = sessionmaker(bind=engine)

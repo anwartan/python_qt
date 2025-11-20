@@ -5,9 +5,14 @@ from telur.TelurWidget import TelurWidget
 from map.map import MapWidget
 from cuaca.Weather import Weather
 from telur.TelurWidget import TelurWidget
+<<<<<<< HEAD
 from passwordmanager.password import password_manager_widget
 from todo.todo_app import Todoapp
 from chartt.chart import ChartWindow
+=======
+from currency.currency import Money
+from passwordmanager.manager import PasswordWidget
+>>>>>>> f078abac18d9e79cd1e9bca7cb60fd10b64a5214
 class MainWindow(QMainWindow):
    def __init__(self):
         super().__init__()
@@ -32,6 +37,10 @@ class MainWindow(QMainWindow):
         elif item.text() == "chart":
                 self.chart_window = ChartWindow()
                 self.chart_window.show()
+        elif item.text() == "currrency converter":
+                self.currency_window = Money()
+                self.currency_window.show()
+
 app = QApplication(sys.argv)
 
 

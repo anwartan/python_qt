@@ -29,6 +29,11 @@
    </item>
    <item>
     <property name="text">
+     <string>password manager</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>map</string>
     </property>
    </item>
@@ -55,6 +60,7 @@
    <item>
     <property name="text">
      <string/>
+     <string>currrency converter</string>
     </property>
    </item>
   </widget>
