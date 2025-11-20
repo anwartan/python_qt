@@ -3,7 +3,9 @@ from PyQt6.uic import loadUi
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtGui import QPixmap
 import requests
+
 from PyQt6.QtCore import Qt
+
 class MapWidget(QMainWindow):
     def __init__(self):
         super().__init__()
