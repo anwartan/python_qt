@@ -47,6 +47,11 @@
      <string>currrency converter</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>diagram</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>
