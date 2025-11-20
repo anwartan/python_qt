@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>399</width>
-    <height>390</height>
+    <height>314</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>5</x>
-     <y>11</y>
+     <x>0</x>
+     <y>10</y>
      <width>391</width>
      <height>281</height>
     </rect>
@@ -44,6 +44,22 @@
    </item>
    <item>
     <property name="text">
+     <string>password manager</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>todoapp</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>chart</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
      <string>currrency converter</string>
     </property>
    </item>
