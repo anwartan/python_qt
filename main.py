@@ -5,14 +5,12 @@ from telur.TelurWidget import TelurWidget
 from map.map import MapWidget
 from cuaca.Weather import Weather
 from telur.TelurWidget import TelurWidget
-<<<<<<< HEAD
-from passwordmanager.password import password_manager_widget
+from passwordmanager.manager import PasswordWidget
 from todo.todo_app import Todoapp
 from chartt.chart import ChartWindow
-=======
 from currency.currency import Money
-from passwordmanager.manager import PasswordWidget
->>>>>>> f078abac18d9e79cd1e9bca7cb60fd10b64a5214
+from eggcounter.egg import Eggcounterwidget
+from cyrpto.cyrpto import CyrptoWindow
 class MainWindow(QMainWindow):
    def __init__(self):
         super().__init__()
@@ -29,7 +27,7 @@ class MainWindow(QMainWindow):
                 self.cuaca_window = Weather()
                 self.cuaca_window.show()
         elif item.text() == "password manager":
-              self.password_window = password_manager_widget()
+              self.password_window = PasswordWidget()
               self.password_window.show()
         elif item.text() == "todoapp":
                 self.todo_app= Todoapp()
@@ -40,7 +38,12 @@ class MainWindow(QMainWindow):
         elif item.text() == "currrency converter":
                 self.currency_window = Money()
                 self.currency_window.show()
-
+        elif item.text() == "Cyrpto ":
+                self.cyrpto_window = CyrptoWindow()
+                self.cyrpto_window.show()
+        elif item.text() == "Egg counter":
+                self.egg_window = Eggcounterwidget()
+                self.egg_window.show()
 app = QApplication(sys.argv)
 
 

@@ -29,11 +29,6 @@
    </item>
    <item>
     <property name="text">
-     <string>password manager</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
      <string>map</string>
     </property>
    </item>
@@ -59,8 +54,22 @@
    </item>
    <item>
     <property name="text">
-     <string/>
      <string>currrency converter</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>password manager</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cyrpto </string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Egg counter</string>
     </property>
    </item>
   </widget>
