@@ -59,6 +59,7 @@
    </item>
    <item>
     <property name="text">
+<<<<<<< HEAD
      <string>password manager</string>
     </property>
    </item>
@@ -70,6 +71,9 @@
    <item>
     <property name="text">
      <string>Egg counter</string>
+=======
+     <string>diagram</string>
+>>>>>>> e0cce20fb142012ca7cb74c9c4bc626a76db0ca6
     </property>
    </item>
   </widget>
