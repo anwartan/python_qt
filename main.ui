@@ -59,13 +59,22 @@
    </item>
    <item>
     <property name="text">
-     <string/>
      <string>currrency converter</string>
     </property>
    </item>
    <item>
     <property name="text">
      <string>diagram</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>crypto history</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>egg counter</string>
     </property>
    </item>
   </widget>

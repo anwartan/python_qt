@@ -12,10 +12,10 @@ class Money(QWidget):
         self.konversi_button.clicked.connect(self.on_konvert_button)
         self.api_client.signal_finished.connect(self.get_data_received)
     def combo_box_items (self):
-        return ["USD", "IDR", "JPY", "EUR", "MYR", "CNY", "GBP", "AUD", "PHP", "INR", "IRR", "QAR", "LKR", "CHF", "THB", "AED", "ZWD", "DZD", "ARS", "BDT", "BRL", "CLP", "KHR", "MGA"]
+        return ["USD", "IDR", "JPY", "EUR", "MYR", "CNY", "GBP", "AUD", "PHP", "INR", "IRR", "QAR", "LKR", "CHF", "THB", "AED", "ZWD", "DZD", "ARS", "BDT", "BRL", "CLP", "KHR", "MGA", "DJF", "HNL", "NPR", "PKR", "RUB", "VND", "XAF", "XOF", "TWD"]
     
     def a_box_items (self):
-        return ["USD", "IDR", "JPY", "EUR", "MYR", "CNY", "GBP", "AUD", "PHP", "INR", "IRR", "QAR", "LKR", "CHF", "THB", "AED", "ZWD", "DZD", "ARS", "BDT", "BRL", "CLP", "KHR", "MGA"]
+        return ["USD", "IDR", "JPY", "EUR", "MYR", "CNY", "GBP", "AUD", "PHP", "INR", "IRR", "QAR", "LKR", "CHF", "THB", "AED", "ZWD", "DZD", "ARS", "BDT", "BRL", "CLP", "KHR", "MGA", "DJF", "HNL", "NPR", "PKR", "RUB", "VND", "XAF", "XOF", "TWD"]
     def on_konvert_button (self):
         nilai = int(self.input_nilai.text())
         dari = self.comboBox.currentText()

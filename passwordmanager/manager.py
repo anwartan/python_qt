@@ -1,11 +1,29 @@
-from PyQt6.QtWidgets import QMainWindow, QInputDialog
-from PyQt6.uic import loadUi
+from fileinput import filename
+from os import path
+from re import A
+import re
+from PyQt6.QtWidgets import QMainWindow, QInputDialog, QTableWidgetItem, QMessageBox, QFileDialog
+from PyQt6.uic import loadUi                
+from numpy import delete
+from sympy import Q
+from database.entity import account
+from passwordmanager.passwordservice.passwordservice import Passwordservice
+import csv
 class PasswordWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         loadUi('passwordmanager/password.ui', self)
         self.add_button.clicked.connect(self.clicked_add)
+        self.search_button.clicked.connect(self.clicked_search)
+        self.delete_button.clicked.connect(self.clicked_delete)
+        self.edit_button.clicked.connect(self.clicked_edit)
+        self.import_button.clicked.connect(self.clicked_import)
+        self.export_button.clicked.connect(self.clicked_export)
+        self.accountservice = Passwordservice()
+        self.clicked_search()
+     
     def clicked_add(self):
+        
         site, ok1 = QInputDialog.getText(self, 'Add Account', 'site:')
         if ok1 == False:
             return
@@ -15,6 +33,78 @@ class PasswordWidget(QMainWindow):
         password, ok3 = QInputDialog.getText(self, 'Add password', 'password:')
         if ok3 == False:
             return
-        print(site, ok1)
-        print(username, ok2)
-        print(password, ok3)
+        self.accountservice.add_password(site, username, password)
+        self.clicked_add()
+    def clicked_search(self):
+        query = self.inputtext.text() 
+        accounts = self.accountservice.search_password(query)   
+        self.tableWidget.setRowCount(len(accounts))
+        for i in range(len(accounts)):
+            row = i
+            account = accounts[i]
+            self.tableWidget.setItem(row, 0, QTableWidgetItem(str(account.id)))
+            self.tableWidget.setItem(row, 1, QTableWidgetItem(account.site))
+            self.tableWidget.setItem(row, 2, QTableWidgetItem(account.username))
+            self.tableWidget.setItem(row, 3, QTableWidgetItem(account.password))
+        accounts = self.accountservice.get_all()
+    def clicked_delete(self):
+        comment = QMessageBox.question(self, 'Delete Account', 'Are you sure you want to delete this account?', QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+        current_row = self.tableWidget.currentRow()
+        id = int(self.tableWidget.item(current_row, 0).text())
+        if comment == QMessageBox.StandardButton.Yes:
+            self.accountservice.delete_password(id)
+        else:
+            print("no")
+        self.clicked_search()
+    def clicked_edit(self):
+        current_row = self.tableWidget.currentRow()
+        account_id = int(self.tableWidget.item(current_row, 0).text())
+        site, ok1 = QInputDialog.getText(self, 'Add Account', 'site:')
+        if ok1 == False:
+            return
+        username, ok2 = QInputDialog.getText(self, 'Add username', 'username:')
+        if ok2 == False:
+            return
+        password, ok3 = QInputDialog.getText(self, 'Add password', 'password:')
+        if ok3 == False:
+            return
+        self.accountservice.edit_password(account_id, site, username, password)
+        self.clicked_search()
+    def clicked_import(self):
+        filename = QFileDialog.getOpenFileName(self,
+        "import Accounts", "", "All Files(*);;Text Files(*.txt)")
+        if not path:
+            return
+        with open(path, "r", encoding= "utf-8") as file:
+            reader = csv.reader(file)
+            next(reader, None)
+            for row in reader:
+                if len(row) < 3:
+                    continue
+                site, username, password = row
+                self.accountservice.add_password(site, username, password)
+                imported_account += 1
+        QMessageBox.information(self, "Import Successful", "Accounts imported successfully!")
+        self.clicked_search()
+    def clicked_export(self):
+        fileName, _ = QFileDialog.getSaveFileName(self,
+        "Save File", "account.csv", "All Files(*);;Text Files(*.txt)")
+        accounts = self.accountservice.get_all()
+        with open(fileName, 'w',newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerow(['Site', 'Username', 'Password'])
+            for account in accounts:
+                file.write(f"{account.id},{account.site},{account.username},{account.password}\n")
+        QMessageBox.information(self, "Export Successful", "Accounts exported successfully!")
+    # def load_data(self):
+        # accounts = self.accountservice.get_all()
+        # self.tableWidget.setRowCount(len(accounts))
+        # for i in range(len(accounts)):
+        #     row = i
+        #     account = accounts[i]
+        #     self.tableWidget.setItem(row, 0, QTableWidgetItem(str(account.id)))
+        #     self.tableWidget.setItem(row, 1, QTableWidgetItem(account.site))
+        #     self.tableWidget.setItem(row, 2, QTableWidgetItem(account.username))
+        #     self.tableWidget.setItem(row, 3, QTableWidgetItem(account.password))
+
+   
