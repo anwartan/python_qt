@@ -13,6 +13,11 @@ from currency.currency import Money
 from egg_counter.egg import EggCounter
 from chart.line import Charts
 from passwordmanager.manager import PasswordWidget
+from currency.currency import Money
+from eggcounter.egg import Eggcounterwidget
+from cyrpto.cyrpto import CyrptoWindow
+from passwordmanager.manager import PasswordWidget
+
 class MainWindow(QMainWindow):
    def __init__(self):
         super().__init__()
@@ -48,6 +53,11 @@ class MainWindow(QMainWindow):
                 self.crypto_window.show()
         elif item.text() == "egg counter":
                 self.egg_window = EggCounter()
+        elif item.text() == "Cyrpto ":
+                self.cyrpto_window = CyrptoWindow()
+                self.cyrpto_window.show()
+        elif item.text() == "Egg counter":
+                self.egg_window = Eggcounterwidget()
                 self.egg_window.show()
 
 app = QApplication(sys.argv)
