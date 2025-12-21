@@ -111,7 +111,6 @@ class Eggcounterwidget(QMainWindow):
         path, _ = QFileDialog.getOpenFileName(self, "Open File", "", "CSV Files (*.csv)")
         if not path:
             return
-
         imported = 0
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -124,13 +123,10 @@ class Eggcounterwidget(QMainWindow):
                     t = datetime.date.fromisoformat(t)
                     self.eggservice.add(t, tipe, int(j), int(r))
                     imported += 1
-
             QMessageBox.information(self, "Success", f"Imported {imported} data!")
             self.load_data()
-
         except Exception as e:
             QMessageBox.warning(self, "Error", str(e))
-
     def exportdata(self):
         path, _ = QFileDialog.getSaveFileName(self, "Save File", "", "CSV Files (*.csv)")
         if not path:

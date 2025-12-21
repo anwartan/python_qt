@@ -74,29 +74,29 @@ class CyrptoWindow(QMainWindow):
 
         self.chart.addSeries(series)
         self.chart.createDefaultAxes()
-        # # X Axis (DateTime)
-        # axis_x = QDateTimeAxis()
-        # axis_x.setFormat("yyyy-MM-dd HH:mm")
-        # axis_x.setTitleText("Date")
-        # self.chart.addAxis(axis_x, Qt.AlignmentFlag.AlignBottom)
-        # series.attachAxis(axis_x)
+        # X Axis (DateTime)
+        axis_x = QDateTimeAxis()
+        axis_x.setFormat("yyyy-MM-dd HH:mm")
+        axis_x.setTitleText("Date")
+        self.chart.addAxis(axis_x, Qt.AlignmentFlag.AlignBottom)
+        series.attachAxis(axis_x)
 
-        # axis_x.setRange(
-        #     QDateTime.fromMSecsSinceEpoch(int(data['timestamp'].min())),
-        #     QDateTime.fromMSecsSinceEpoch(int(data['timestamp'].max()))
-        # )
+        axis_x.setRange(
+            QDateTime.fromMSecsSinceEpoch(int(data['timestamp'].min())),
+            QDateTime.fromMSecsSinceEpoch(int(data['timestamp'].max()))
+        )
 
-        # # Y Axis (Price)
-        # axis_y = QValueAxis()
-        # axis_y.setTitleText("Price (USD)")
-        # self.chart.addAxis(axis_y, Qt.AlignmentFlag.AlignLeft)
-        # series.attachAxis(axis_y)
+        # Y Axis (Price)
+        axis_y = QValueAxis()
+        axis_y.setTitleText("Price (USD)")
+        self.chart.addAxis(axis_y, Qt.AlignmentFlag.AlignLeft)
+        series.attachAxis(axis_y)
 
-        # axis_y.setRange(
-        #     float(data['low'].min()),
-        #     float(data['high'].max())
-        # )
+        axis_y.setRange(
+            float(data['low'].min()),
+            float(data['high'].max())
+        )
 
-        # self.chart.setTitle(f"Candlestick — {self.coinComboBox.currentText()} ({self.timeframeComboBox.currentText()} days)")
-        # self.chart_view.setChart(self.chart)
+        self.chart.setTitle(f"Candlestick — {self.coinComboBox.currentText()} ({self.timeframeComboBox.currentText()} days)")
+        self.chart_view.setChart(self.chart)
 

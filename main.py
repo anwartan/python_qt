@@ -53,6 +53,7 @@ class MainWindow(QMainWindow):
                 self.crypto_window.show()
         elif item.text() == "egg counter":
                 self.egg_window = EggCounter()
+                self.egg_window.show()
         elif item.text() == "Cyrpto ":
                 self.cyrpto_window = CyrptoWindow()
                 self.cyrpto_window.show()
